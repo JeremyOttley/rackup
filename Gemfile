@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rack'
-gem 'sassc-ruby'
+gem 'rack', '~> 1.6'
+#gem 'sassc-ruby'
+gem 'sass', '~> 3.4'
 gem 'slim'
