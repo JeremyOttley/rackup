@@ -1,1 +1,224 @@
+@media only screen and (min-width: 1000px)
+  article
+    max-width: 1000px
+    margin-right: auto
+    margin-left: auto
+    display: grid
+    grid-column-gap: 1.5rem
+    align-items: start
 
+figcaption
+  font-size: 0.8em
+  line-height: 1.875
+  font-style: italic
+
+.side-note
+  font-size: 0.8em
+  line-height: 1.875
+  font-style: italic
+  border-left: 5px solid #333
+  padding-left: 1.5rem
+  &::before
+    content: 'Note:'
+    font-style: normal
+    text-decoration: underline
+    margin-right: 0.3em
+
+@media only screen and (max-width: 600px)
+  .side-note
+    margin-left: 1.5rem
+
+.page-content
+  margin-top: 3vw
+  margin-bottom: 3vw
+
+.post > *
+  margin-top: 0
+  margin-bottom: 1.5rem
+  /* 1
+
+@supports (display: grid)
+  @media only screen and (min-width: 600px)
+    .post
+      max-width: 600px
+      margin-right: auto
+      margin-left: auto
+      display: grid
+      grid-column-gap: 1.5rem
+      align-items: start
+      >
+        *
+          grid-column: main
+        pre, figure, blockquote
+          grid-column: full
+    .grow-to-full
+      grid-column: full
+    .post >
+      h1, h2, h3, h4, h5, h6
+        grid-column: main-start / full-end
+      .has-side-note
+        grid-column-end: main-end
+      .side-note
+        grid-column: side
+  @media only screen and (min-width: 1400px)
+    .post
+      max-width: 1400px
+
+.qtip
+  display: inline-block
+  position: relative
+  cursor: pointer
+  color: #3bb4e5
+  border-bottom: 0.05em dotted #3bb4e5
+  box-sizing: border-box
+  font-style: normal
+  -webkit-transition: all .25s ease-in-out
+  transition: all 0.25s ease-in-out
+  &:hover
+    color: #069
+    border-bottom: 0.05em dotted #069
+  &:before
+    content: attr(data-tip)
+    font-size: 14px
+    position: absolute
+    background: rgba(10, 20, 30, 0.85)
+    color: #fff
+    line-height: 1.2em
+    padding: 0.5em
+    font-style: normal
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3)
+    min-width: 120px
+    text-align: center
+    opacity: 0
+    visibility: hidden
+    -webkit-transition: all .3s ease-in-out
+    transition: all .3s ease-in-out
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5)
+    font-family: sans-serif
+    letter-spacing: 0
+    font-weight: 600
+  &:after
+    width: 0
+    height: 0
+    border-style: solid
+    content: ''
+    position: absolute
+    opacity: 0
+    visibility: hidden
+    -webkit-transition: all .3s ease-in-out
+    transition: all 0.3s ease-in-out
+  &:hover
+    &:before, &:after
+      visibility: visible
+      opacity: 1
+  &.tip-top
+    &:before
+      top: 0
+      left: 50%
+      -webkit-transform: translate(-50%, calc(-100% - 8px))
+      transform: translate(-50%, calc(-100% - 8px))
+      box-sizing: border-box
+      border-radius: 3px
+    &:after
+      border-width: 8px 8px 0 8px
+      border-color: rgba(10, 20, 30, 0.85) transparent transparent transparent
+      top: -8px
+      left: 50%
+      -webkit-transform: translate(-50%, 0)
+      transform: translate(-50%, 0)
+  &.tip-bottom
+    &:before
+      bottom: 0
+      left: 50%
+      -webkit-transform: translate(-50%, calc(100% + 8px))
+      transform: translate(-50%, calc(100% + 8px))
+      box-sizing: border-box
+      border-radius: 3px
+    &:after
+      border-width: 0 8px 8px 8px
+      border-color: transparent transparent rgba(10, 20, 30, 0.85) transparent
+      bottom: -8px
+      left: 50%
+      -webkit-transform: translate(-50%, 0)
+      transform: translate(-50%, 0)
+  &.tip-left
+    &:before
+      left: 0
+      top: 50%
+      -webkit-transform: translate(calc(-100% - 8px), -50%)
+      transform: translate(calc(-100% - 8px), -50%)
+      box-sizing: border-box
+      border-radius: 3px
+    &:after
+      border-width: 8px 0 8px 8px
+      border-color: transparent transparent transparent rgba(10, 20, 30, 0.85)
+      left: -8px
+      top: 50%
+      -webkit-transform: translate(0, -50%)
+      transform: translate(0, -50%)
+  &.tip-right
+    &:before
+      right: 0
+      top: 50%
+      -webkit-transform: translate(calc(100% + 8px), -50%)
+      transform: translate(calc(100% + 8px), -50%)
+      box-sizing: border-box
+      border-radius: 3px
+    &:after
+      border-width: 8px 8px 8px 0
+      border-color: transparent rgba(10, 20, 30, 0.85) transparent transparent
+      right: -8px
+      top: 50%
+      -webkit-transform: translate(0, -50%)
+      transform: translate(0, -50%)
+
+.qcontent
+  color: #ff0
+  font-weight: bold
+
+.qclass
+  color: #dd0
+  font-weight: bold
+
+table
+  border: 1px solid #ccc
+  border-collapse: collapse
+  table-layout: fixed
+  width: 100%
+  caption
+    font-size: 1.5em
+    margin: .5em 0 .75em
+  tr
+    border: 1px solid #ddd
+    padding: .35em
+    &:nth-child(even)
+      background: #f8f8f8
+  th, td
+    padding: .625em
+    text-align: left
+  th
+    background: #999
+    color: #fff
+    font-size: .85em
+    letter-spacing: .1em
+    text-transform: uppercase
+  td
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+section
+  margin: 1em auto
+  word-wrap: break-word
+  padding: 0 2em
+
+img, iframe, embed, object, video
+  width: 100%
+
+figure
+  display: block
+  padding: 1em 0
+  -webkit-margin-before: 0
+  -webkit-margin-after: 0
+  -webkit-margin-start: 0
+  -webkit-margin-end: 0
