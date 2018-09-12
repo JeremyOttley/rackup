@@ -1,1 +1,3 @@
 * rackup
+
+bundle exec rackup #=> http://localhost:9292
